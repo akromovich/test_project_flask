@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <title>{% block title %}{{ article.title }}{% endblock %}</title>
+</head>
+<body>
+       {% block header %}<header class="p-3 text-bg-dark">
+    <div class="container ">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Начальная загрузка"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="nav-link px-2 text-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Главная</font></font></a></li>
+          <li><a href="/projects" class="nav-link px-2 text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Статьи</font></font></a></li>
+          <li><a href="/profile" class="nav-link px-2 text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Профиль</font></font></a></li>
+          <li><a href="#" class="nav-link px-2 text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Часто задаваемые вопросы</font></font></a></li>
+          <li><a href="#" class="nav-link px-2 text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">О</font></font></a></li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Поиск..." aria-label="Поиск">
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Авторизоваться</font></font></button>
+            <a href="/create_article" class="btn btn-warning">Создать статью</a>
+        </div>
+      </div>
+    </div>
+  </header>{% endblock %}
+    <div class="container ">
+        <br><h1>{{ article.title }}</h1>
+            <div class="alert alert-info ">
+
+            <p>{{ article.text }}</p>
+            <p><b>Дата: {{ article.date.date() }}</b></p>
+                <a href="/projects/{{ article.id }}/del" class="btn btn-warning">Удалить</a>
+                <a href="/projects/{{ article.id }}/update" class="btn btn-warning">Редактировать</a>
+
+        </div>
+
+    </div>
+</body>
+</html>
